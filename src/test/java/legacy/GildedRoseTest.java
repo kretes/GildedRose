@@ -1,10 +1,13 @@
+package legacy;
+
 import com.google.common.collect.Lists;
+import legacy.GildedRose;
+import legacy.Item;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.fest.assertions.Assertions;
-import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 
