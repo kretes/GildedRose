@@ -28,13 +28,72 @@ public class GildedRoseTest {
         Assertions.assertThat(GildedRose.items).containsExactly(anItem("any",4,9));
     }
 
+    @Test
+	public void agedBrie() {
+        GildedRose.items = Lists.newArrayList(anItem("Aged Brie",5,10));
+
+		GildedRose.updateQuality();
+
+        Assertions.assertThat(GildedRose.items).containsExactly(anItem("Aged Brie",4,11));
+    }
+
+    @Test
+	public void backstagePasses() {
+        GildedRose.items = Lists.newArrayList(anItem("Backstage passes to a TAFKAL80ETC concert",5,10));
+
+		GildedRose.updateQuality();
+
+        Assertions.assertThat(GildedRose.items).containsExactly(
+                anItem("Backstage passes to a TAFKAL80ETC concert",4,13));
+    }
+
+    @Test
+    public void sellIn0() {
+        GildedRose.items = Lists.newArrayList(anItem("Backstage passes to a TAFKAL80ETC concert",0,10));
+
+        GildedRose.updateQuality();
+
+        Assertions.assertThat(GildedRose.items).containsExactly(
+                anItem("Backstage passes to a TAFKAL80ETC concert",-1,0));
+    }
+
+    @Test
+    public void sellIn0Any() {
+        GildedRose.items = Lists.newArrayList(anItem("Any",0,10));
+
+        GildedRose.updateQuality();
+
+        Assertions.assertThat(GildedRose.items).containsExactly(
+                anItem("Any",-1,8));
+    }
+
+    @Test
+    public void sellIn0AgedBrie() {
+        GildedRose.items = Lists.newArrayList(anItem("Aged Brie",0,10));
+
+        GildedRose.updateQuality();
+
+        Assertions.assertThat(GildedRose.items).containsExactly(
+                anItem("Aged Brie",-1,12));
+    }
+
+    @Test
+    public void sulfuras() {
+        GildedRose.items = Lists.newArrayList(anItem("Sulfuras, Hand of Ragnaros",0,10));
+
+        GildedRose.updateQuality();
+
+        Assertions.assertThat(GildedRose.items).containsExactly(
+                anItem("Sulfuras, Hand of Ragnaros",0,10));
+    }
+
     private Item anItem(String itemName, int sellIn, int quality) {
         return new MyItem(itemName,sellIn,quality);
     }
 
     private class MyItem extends Item {
-        public MyItem(String any, int i, int i1) {
-            super(any,i,i1);
+        public MyItem(String itemName, int sellIn, int quality) {
+            super(itemName,sellIn,quality);
         }
 
         @Override
