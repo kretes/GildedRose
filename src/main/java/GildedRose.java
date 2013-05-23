@@ -1,12 +1,10 @@
-package legacy;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class GildedRose {
 
-	static List<Item> items = null;
+	private static List<Item> items = null;
 
 	/**
 	 * @param args
@@ -30,7 +28,6 @@ public class GildedRose {
 	
     public static void updateQuality()
     {
-
         for (int i = 0; i < items.size(); i++)
         {
             if ((!"Aged Brie".equals(items.get(i).getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) 
